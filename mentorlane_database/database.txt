@@ -1,0 +1,169 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 01, 2026 at 06:19 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `mentorlane`
+--
+CREATE DATABASE IF NOT EXISTS `mentorlane` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `mentorlane`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teaching_languages`
+--
+
+CREATE TABLE `teaching_languages` (
+  `teaching_languages_id` int(11) NOT NULL,
+  `teaching_language` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `teaching_languages`
+--
+
+INSERT INTO `teaching_languages` (`teaching_languages_id`, `teaching_language`) VALUES
+(1, 'English');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teaching_levels`
+--
+
+CREATE TABLE `teaching_levels` (
+  `teaching_levels_id` int(11) NOT NULL,
+  `teaching_level_name` varchar(50) NOT NULL,
+  `teaching_level_description` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teaching_modes`
+--
+
+CREATE TABLE `teaching_modes` (
+  `teching_modes_id` int(11) NOT NULL,
+  `teching_mode` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `teaching_modes`
+--
+
+INSERT INTO `teaching_modes` (`teching_modes_id`, `teching_mode`) VALUES
+(1, 'Offline');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teaching_subjects`
+--
+
+CREATE TABLE `teaching_subjects` (
+  `teaching_subjects_id` int(11) NOT NULL,
+  `teaching_subject` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tutors`
+--
+
+CREATE TABLE `tutors` (
+  `tutor_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `gender` text NOT NULL,
+  `dob` date NOT NULL,
+  `emailid` varchar(100) NOT NULL,
+  `address_line1` varchar(100) NOT NULL,
+  `address_line2` varchar(100) DEFAULT NULL,
+  `address_city` int(11) NOT NULL,
+  `address_state` int(11) NOT NULL,
+  `address_pincode` varchar(6) NOT NULL,
+  `address_country` int(11) NOT NULL,
+  `phone` text NOT NULL,
+  `bio` text DEFAULT NULL,
+  `profilepic` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `teaching_languages`
+--
+ALTER TABLE `teaching_languages`
+  ADD PRIMARY KEY (`teaching_languages_id`);
+
+--
+-- Indexes for table `teaching_levels`
+--
+ALTER TABLE `teaching_levels`
+  ADD PRIMARY KEY (`teaching_levels_id`);
+
+--
+-- Indexes for table `teaching_modes`
+--
+ALTER TABLE `teaching_modes`
+  ADD PRIMARY KEY (`teching_modes_id`);
+
+--
+-- Indexes for table `teaching_subjects`
+--
+ALTER TABLE `teaching_subjects`
+  ADD PRIMARY KEY (`teaching_subjects_id`);
+
+--
+-- Indexes for table `tutors`
+--
+ALTER TABLE `tutors`
+  ADD PRIMARY KEY (`tutor_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `teaching_languages`
+--
+ALTER TABLE `teaching_languages`
+  MODIFY `teaching_languages_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `teaching_levels`
+--
+ALTER TABLE `teaching_levels`
+  MODIFY `teaching_levels_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `teaching_modes`
+--
+ALTER TABLE `teaching_modes`
+  MODIFY `teching_modes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `teaching_subjects`
+--
+ALTER TABLE `teaching_subjects`
+  MODIFY `teaching_subjects_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tutors`
+--
+ALTER TABLE `tutors`
+  MODIFY `tutor_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
